@@ -10,12 +10,14 @@
             <img id="chuckImg">
             <p id ="chuckSays">empty</p>
             <button id="refreshQuote">Click Me</button>
-            <form>
+            <form id="getChuckQuotes">
                 
                 <label>
                     Choose a category
                     <p id="animalquote"></p>
-                    <input type="text" value="" id="categoryInput" name="categoryinput" placeholder="type in a category name" required/>
+                    <select id="categoryInput" name="categoryinput">
+                        <option value="dev">Dev</option>
+                    </select>
                 </label>
                 <button type="submit" id="submitForm">Form Button</button>
             </form>
