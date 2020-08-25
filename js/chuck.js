@@ -16,12 +16,10 @@ const dataFromAPI=()=>{
     .then(data => data)
 };
 const getQuote = (category)=>{
-    //console.log(category)
+    console.log(url+category)
     get(url + category)
-    .then (response=> {
-        console.log(url+category)
-        return response.value
-    })
+    .then (response => {
+        return response.value})
 
 };
 clickMe.addEventListener('click', () => {
@@ -32,6 +30,8 @@ clickMe.addEventListener('click', () => {
 
 formButton.addEventListener('click',e=>{
     e.preventDefault();
-    animalOutput.innerHTML = getQuote(formInput.value)
-    console.log(getQuote(formInput.value))
+    get(url + formInput.value).then(result =>{
+        quoteOut.innerHTML = result.value
+    })
+    console.log(getQuote('dev'))
 });
