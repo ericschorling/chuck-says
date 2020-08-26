@@ -8,8 +8,16 @@ const chuckImg = document.getElementById('chuckImg')
 const formButton = document.querySelector("#submitForm")
 const formInput = document.querySelector("#categoryInput")
 const animalOutput = document.querySelector('#animalquote')
+const modalOverlay = document.querySelector('.modal-overlay')
+const modalClose = document.getElementById('closeModal')
+const userInput = document.getElementById('userInput')
 //let category = 'dev'
 let defaultCategory = 'dev';
+userInput.addEventListener('change', ()=>{
+    
+    userInput.classList.toggle('filled')
+})
+
 
 const dataFromAPI=()=>{
     return fetch(url + "dev")
@@ -28,6 +36,12 @@ clickMe.addEventListener('click', () => {
     quoteOut.innerHTML = response.value
     chuckImg.src = response.icon_url })
 });
+
+//userInput.addEventListener('')
+
+modalOverlay.addEventListener('click', () => modalOverlay.classList.toggle('open'))
+
+modalClose.addEventListener('click', () => modalOverlay.classList.toggle('open'))
 
 
 
@@ -56,13 +70,22 @@ const displayDropdown = () => {
 }
 const getChuckQuotes = document.getElementById('getChuckQuotes')
 
+
 getChuckQuotes.addEventListener('submit', e => {
     e.preventDefault()
     get(url + formInput.value).then(result =>{
         quoteOut.innerHTML = result.value
+        modalOverlay.classList.toggle('open')
     })
-    console.log(getQuote('dev'))
-    console.log('heyo')
-})
 
-displayDropdown()
+});
+
+displayDropdown();
+
+(function(){
+    get(url+defaultCategory).then(result =>{
+        quoteOut.innerHTML = result.value
+    })
+})()
+
+

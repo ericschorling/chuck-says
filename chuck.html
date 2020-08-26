@@ -7,20 +7,30 @@
     </head>
     <body>
         <div>
-            <img id="chuckImg">
-            <p id ="chuckSays">empty</p>
-            <button id="refreshQuote">Click Me</button>
-            <form id="getChuckQuotes">
-                
-                <label>
-                    Choose a category
-                    <p id="animalquote"></p>
-                    <select id="categoryInput" name="categoryinput">
-                        <option value="dev">Dev</option>
-                    </select>
-                </label>
-                <button type="submit" id="submitForm">Form Button</button>
-            </form>
+            <div class="wrapper">
+                <div class="img-wrapper">
+                    <img style="animation: rotation 10s infinite linear;" id="chuckImg">
+                </div>
+                <button id="refreshQuote">Click Me</button>
+                <form id="getChuckQuotes" class="chuck-form">
+                    
+                    <label>
+                        Choose a category
+                        <p id="animalquote" class="quoteOut"></p>
+                        <select id="categoryInput" name="categoryinput">
+                            <option value="dev">Dev</option>
+                        </select>
+                    </label>
+                    <input type="text" id="userInput" class="user-input">
+                    <button type="submit" id="submitForm">Form Button</button>
+                </form>
+            </div>
+            <div class="modal-overlay">
+                <div class="modal-content">
+                    <p id="chuckSays">empty</p>
+                    <button id="closeModal" class="modal-close">Close</button>
+                </div>
+            </div>
         </div>
         <script src="js/get.js"></script>
         <script src="js/chuck.js"></script>

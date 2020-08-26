@@ -1,0 +1,76 @@
+*{
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+.image-wrapper {
+    width: 100%;
+}
+.image-wrapper img{
+    height: auto;
+    width: 100%
+}
+.wrapper {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 60rem;
+    overflow: hidden;
+}
+
+.modal-overlay{
+    background-color: rgba(0,0,0,0.7);
+    bottom: 0;
+    display: none;
+    height: 100vh;
+    top:0;
+    right: 0;
+    left: 0;
+    position: absolute;
+    width: 100vw; /*visible width*/
+    z-index: 9999;
+}
+.modal-overlay.open {
+    display:flex;
+}
+
+
+
+.modal-content{
+    background-color: gainsboro;
+    border-radius: 6px;
+    margin: auto;
+    max-width: 25rem;
+    padding: 8px;
+    position: relative;
+    z-index: 10000;
+    text-align: center;
+    animation-duration: 2s;
+    animation-name: slidein;
+}
+
+.modal-close{
+    background-color: rgb(143, 211, 233);
+    border: 1px solid black;
+}
+
+p {
+    animation-duration: 5s;
+    animation-name: slidein;
+  }
+  
+  @keyframes slidein {
+    from {
+      margin-left: 100%;
+      width: 300%; 
+    }
+  
+    to {
+      margin-left: 0%;
+      width: 100%;
+    }
+  }
+.user-input.filled{
+    border: 2px solid green;
+}
